@@ -27,6 +27,7 @@ func deviceEndpoint(w http.ResponseWriter, r *http.Request) {
 		VolumeMute:    false,
 		Pause:         false,
 		Play:          false,
+		OK:            false,
 	}
 }
 
@@ -59,6 +60,10 @@ func uiEndpoint(w http.ResponseWriter, r *http.Request) {
 	if len(query.Get("Play")) != 0 {
 		currentResponse.Play = true
 	}
+	if len(query.Get("OK")) != 0 {
+		currentResponse.OK = true
+	}
+
 	fmt.Fprintln(w, "")
 }
 
